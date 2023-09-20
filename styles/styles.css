@@ -1,0 +1,133 @@
+/* General styles */
+html {box-sizing: border-box;font-family: Arial, Helvetica, sans-serif;}
+*, *::before, *::after {box-sizing: inherit; margin: 0; padding: 0;}
+ul {list-style-type: none;}
+a {text-decoration: none; color: inherit;}
+a:hover {text-decoration: none;}
+
+/* Navigation bar*/
+
+body {
+    background-color: #0b1012;
+}
+
+.header-main {
+    width: 100%;
+    height: 60px;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.header-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    color: #0b1012;
+    /* border: 2px dotted fuchsia; */
+}
+/* 
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #0b1012;
+} */
+
+.header-text {
+    margin-right: 10px;
+}
+
+.gold-text {
+    color: #c2882b;
+}
+
+.italic-text {
+    font-style: italic;
+}
+
+.header-left img {
+    height: 55px;    
+}
+
+.header-logo {
+    width: fit-content;
+    height: 100%;
+}
+
+.header-nav {
+    width: fit-content;
+    height: 100%;
+    /* border: 2px dotted rgb(5, 137, 31); */
+}
+
+.header-nav ul{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* border: 2px dotted rgb(195, 120, 8); */
+}
+
+.header-nav ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-nav ul li:hover {
+    color: #c2882b;
+    background-color: #e8e8e8;
+}
+
+.header-nav ul li a {
+    padding: 15px 10px;
+}
+
+.header-right {
+    width: fit-content;
+    height: 100%;
+    /* border: 2px dotted fuchsia; */
+}
+
+/* Social media section */
+
+
+.sm {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 18px;
+    justify-content: flex-end;
+}
+
+.sm-logo {
+    width: 22px;
+    height: 22px;
+    padding: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sm-logo:hover {
+    border-bottom: 1px solid #c2882b;
+    
+}
+
+.sm-logo.first {
+    width: 25px;
+    height: 25px;
+    background-image: url(../assets/sm/github-logo-black.png);
+}
+
+.sm-logo.second {
+    background-image: url(../assets/sm/x-logo-black.png);
+}
+.sm-logo.third {
+    background-image: url(../assets/sm/instagram-logo-black.png);
+}
