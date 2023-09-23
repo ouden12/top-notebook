@@ -20,6 +20,7 @@
                     <li><a href="">Documentation</a></li>
                     <li><a href="">Practices</a></li>
                     <li><a href="">Resources</a></li>
+                    <li><a href="test.html">Test</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,8 +38,39 @@
             </div>
         </div>
     </header>
-    <main>
+    <main class="main-container">
+        <article class="article">
+            <div class="article-header">
+                <h3>Javascript Fundamentals</h3>
+            </div>
+            <div class="article-body">
+                <p>
+                    Javascript code can be run on browser or outside the browser environment, for now we will cover only the first one. To add JS code to our document we can do so by using the 'script' tag and adding the code inside it, or by linking an external file with the attribute 'src' and the doc path inside the tag.
+                </p><br>
+                <h5>Variables</h5>
+                <p>
+                    There is now a way to declare variables that wasn't used before. We can use 'let' anv 'const', before the only way of declaring variables was using 'var', there are some cases where var will behave in odd ways in comparison to using just 'let' and 'const'.
 
+                    To declare a variable we just need to use the keyword 'let' and the name of said variable. To add data to our variable we can use the operator '=', like this:
+                </p>
+                <code>
+                    let doggo_name;<br>
+                    doggo_name = "Catalina";
+                </code>
+                <p>
+                    We can be more concise and combine the declaration of the variable with the assignment in a single line 'let variable = value;', note that we can declare multiple variables in one single 'let' statement. Then we can proceed to use the variable's content by using it's name. Like this:
+                </p>
+                <code>
+                    let doggo_name = "Catalina", doggo_happiness = 100;<br>
+                    alert(doggo_name);
+                </code>
+                <p>
+                    There are a couple of limitations to the naming of variables in JS. We can only use letters, digits or the symbols '$' and '_'. Also, the first character of the variable MUST NOT be a digit.
+                </p>
+                <h5>Numbers</h5>
+                <p>
+            </div>
+        </article>
     </main>
 
 </body>
