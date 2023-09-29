@@ -41,21 +41,195 @@
         </div>
     </header>
     <main class="main-container">
+        <h3>Prueba de modificación del DOM con JS</h3>
+        <button class="normal-button" id="plomo">Plomo al hampa</button>
+        <p id="hampa-status">El hampa anda suelto</p>
+
+        <hr>
+
+        <button class="normal-button" id="saluditos">Tócate, digo, tócame, digo tú sabes mano</button>
+        <div id="greeting"></div>
+
+        <hr>
+        <button class="normal-button" id="setMarico">Mariquizar</button>
+        <p id="replace">Si el Lorem me lee es porque es más LOREM que yo. Ja loremquito.</p>
+        <br>
+        <p id="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, sit. Esse ratione hic itaque? Doloremque molestiae doloribus, maiores amet fuga officia voluptas, iusto odit eos unde dolore laboriosam repudiandae expedita!</p>
     </main>
 
     <script>
+
+        // Replacing content of a String
+        let text, newText;
+        text = document.getElementById("replace").innerHTML;
+        //  We can use a regular expression with the /g flag set to replace multiple matches.
+        //  we also used the flag /i in order to find matches without the same capitalization. 
+        //  To use more than one flag in a regular expression we can write them together: `/gi`
+        newText = text.replace(/Lorem/gi, "MARICO");
+        console.log(newText);
+
+        const marico = document.getElementById("setMarico");
+
+        marico.addEventListener("click", setMarico);
+
+        function setMarico (){
+            document.getElementById("replace").innerHTML = newText;
+        }
+
+        // Declare a variable with the content of an HTML element
+        const lorem = document.getElementById("lorem").innerHTML;
+        console.log(lorem);
+
+        // Get a string length
+        console.log("This paragraph has: " + lorem.length + " characters.");
+
+        // Extract a part of a string
+        // Can be done with: `slice(start, end)`, `substring(stard, end)`, `substr(start, end)`
+        // In the three alternatives if the second parameter is omitted then it will slice out the rest of the original string.
+
+        let loremsito = lorem.slice(28, 98);
+        console.log("First slice - " + loremsito);
+
+        loremsito = lorem.slice(100);
+        console.log("2nd slice :D - " + loremsito);
+
+        // With substr() you specify how long should the string be with the second parameter
+        loremsito = lorem.substr(12, 4);
+        console.log("3rd slice, super short: " + loremsito);
+
+        // Test a multiline string
+        const multiLine = (`"Un gran poder,
+        conlleva una gran 
+        LADILLA"`).replace(/  +/g, '');
+        // .replace(/  +/g, '');
+        console.log(multiLine);
+
+        // Test quotation marks inside strings
+        console.log("\"Escribiendo algo con comillas dentro\" (se llama 'Escaping characters').");
+
+        // Concatenate strings with numbers
+
+        let primo = "Jota";
+        let primoNumber = 279;
+        console.log(`${primo}-${primoNumber}`);
+
+        //Conversion of strings to numbers and viceversa
+
+        let numConv = 258;
+        let numConv2 = String(numConv);
+        console.log("Mi variable es: " + numConv);
+        console.log("Es de tipo: " + typeof numConv2);
+
+        let stringConv = "Juana";
+        let stringConv2 = Number(stringConv);
+        console.log ("El valor de mi string convertida a número es: " + stringConv2);
+        console.log("Pero sigue siendo un numero, no? Es de tipo: " + typeof stringConv2);
+
+        // Display message after a button is pressed
+        const greetingButton = document.getElementById("saluditos");
+        function saluditos () {
+            const adjetivo = prompt("Juego de manos es juego de qué? >:C");
+            const saludo = document.getElementById("greeting");
+            saludo.textContent = `Juego de manos es juego de ${adjetivo}`;
+        }
+        // Aquí ocurre la detección de un click en el botón
+        greetingButton.addEventListener("click", saluditos);
+
+
+        // Change text after a button is pressed
+
+        const btn = document.getElementById("plomo");
+        const txt = document.getElementById("hampa-status");
+
+        btn.addEventListener("click", updateHampaStatus);
+
+        function updateHampaStatus () {
+            if (btn.textContent === "Plomo al hampa") {
+                btn.textContent = "Alto al fuego";
+                txt.textContent = "El hampa ha muerto, porque yo lo maté";
+            } else {
+                btn.textContent = "Plomo al hampa";
+                txt.textContent = "El hampa anda suelto, de nuevo.";
+            }
+        }
+
+        //
+
+
         console.log ("Qlq manaure");
 
 
         let doggo_name = "Catalina", doggo_happiness = 100;
         console.log (doggo_name+" is "+doggo_happiness+" of happy :D");
-        // alert(doggo_name+" is "+doggo_happiness+" of happy :D");
-
+        let eyeNumber = doggo_happiness / 50;
+        console.log (doggo_name + " has " + eyeNumber + " eyes.");
         let admin, name;
         name = "John";
         admin = name;
         console.log("The admin name is: "+admin);
+        console.log ("doggo_name variable is: " + typeof doggo_name);
+        
+        // To round numbers we can use "toFixed(n)"
 
+        const lotsOfDecimal = 1.766584958675746364;
+        console.log ("Variable con decimales: " + lotsOfDecimal); ;
+        const twoDecimalPlaces = lotsOfDecimal.toFixed(2);
+        console.log ("Redondeando decimales (a solo 2): " + twoDecimalPlaces);
+
+        let myNumber = "74";
+
+        // Transforming a string into a number
+        myNumber = Number(myNumber);
+
+        myNumber += 3;
+        console.log ("Numero o qué vaina: " + myNumber);
+
+        let num2 = 6;
+        console.log(num2 + " - Original value." );
+
+        // browser returns the current value, then increments the variable. You can see that it's been incremented if you return the variable value again.
+        console.log(num2-- + " - First prints the value and then susctraction is made.");
+        console.log(num2 + " - Printing now the number correctly.");
+        console.log(num2 + " - Testing is actually modified.");
+
+        // This behaviour can be avoided if the syntax changes to --num2, putting the operator before makes the alogorithim to modify and later prints the number 
+        console.log (--num2 + " - The number was modified but printed before");
+
+
+        // Tests from TOP page
+
+        // 1
+        console.log ("Add two numbers together: ", 25+23);
+        // 2
+        console.log ("Add a sequence of 6 different numbers together: ", 1+2+3+4+5+6);
+        // 3
+        console.log("Print the solution to the following equation: ", ((4+6+9)/77).toFixed(3));
+        // 4
+        let a = 10;
+        console.log(a*2);
+        console.log(a*35);
+        let b = 7 * a;
+        console.log(b);
+        // 5
+        let max = 57;
+        let actual = max - 13;
+        let percentage = actual / max;
+        //  Type percentage in the console
+
+        // Strings
+
+        let myName = "Yisus";
+        let string1 = "Hola ";
+        let string2 = 'soy ';
+        let string3 = `El ${myName}`;
+        let string4;
+        console.log(string1, string2, string3);
+        string4 = (string1 + string2 + string3);
+        console.log("Esto es el string 4: ", string4);
+        // How to create an pop-up alert in JS
+        // Use "alert" and inside the parenthesis write the content with variables and text inside " ".
+
+        // alert(doggo_name+" is "+doggo_happiness+" of happy :D");
 
         // Create a variable with the name of our planet. How would you name such a variable?
         // Create a variable to store the name of a current visitor to a website. How would you name that variable?

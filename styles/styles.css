@@ -164,3 +164,8 @@ code {
     margin-bottom: 15px;
     line-height: 20px;
 }
+
+.normal-button {
+    max-width: fit-content;
+    padding: 5px;
+}
