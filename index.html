@@ -115,9 +115,57 @@
                     
                 </p>
                 <code>
-                    // Extract a part of a string
-                    // Get a string length
+                    let cadena;<br>
+                    cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eaque excepturi similique maxime!";<br><br>
+                    // Extract a part of a string<br>
+                    // It can be done with three methods: `slice(start, end)`, `substring(start, end)` and `substr(start, end)`<br>
+                    // You can check which one adapts better to your specific case<br>
+                    let fragmento;<br>
+                    fragmento = cadena.slice(6, 20);<br>
+                    console.log("Mi fragmento es: "+fragmento); // This would print "Mi fragmento es: ipsum dolor sit amet"<br>
+
+                    <br>
+                    // Get a string length<br>
+                    // We use the property `.length`<br>
+
+                    let largo;<br>
+                    largo = cadena.length();<br>
+                    console.log("The string has "+largo+" characters."); // This would print: "The string has 97 characters."<br>
+
+                    <br>
                     // Replacing content of a String<br>
+                    // We use the method `.replace(oldText, newText)`<br>
+                    let frase = "Los hobbits comen bien. A los hobbits les gusta la naturaleza";<br>
+                    let fraseModificada = frase.replace('hobbits','elfos');<br>
+                    console.log(frase);<br>
+                    console.log(fraseModificada); // New text but only one instance modified<br>
+                    
+                    <br>
+                    //  We can use a regular expression (/Lorem/) with the /g flag set to replace multiple matches<br>
+                    // Also, we can use the /i flag to find matches without the same capitalization<br>
+                    fraseModificada = replace(/hobbits/gi, "elfos");<br>
+                    console.log(fraseModificada); // This would print: "Los elfos comen bien. A los elfos les gusta la naturaleza"
+                    <script>
+                        let cadena;
+                        cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eaque excepturi similique maxime!";
+                        let fragmento;
+                        fragmento = cadena.slice(6, 26);
+                        console.log("Mi fragmento es: "+fragmento); 
+
+                        let largo;
+                        largo = cadena.length;
+                        console.log("The string has "+largo+" characters."); 
+
+                        let frase = "Los hobbits comen bien. A los hobbits les gusta la naturaleza";
+                        let fraseModificada = frase.replace('hobbits','elfos');
+                        console.log(frase);
+                        console.log(fraseModificada);
+
+                        console.log("Corrección de todos los matches");
+                        fraseModificada = frase.replace(/hobbits/gi, "elfos");
+                        console.log(fraseModificada);
+                    </script>
+
                 </code>
             </div>
         </article>
