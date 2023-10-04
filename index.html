@@ -18,7 +18,7 @@
             <nav class="header-nav">
                 <ul>
                     <li><a href="">Documentation</a></li>
-                    <li><a href="">Exercises</a></li>
+                    <li><a href="">Practices</a></li>
                     <li><a href="">Resources</a></li>
                     <li><a href="test.html">Test</a></li>
                 </ul>
@@ -61,14 +61,62 @@
                     We can be more concise and combine the declaration of the variable with the assignment in a single line 'let variable = value;', note that we can declare multiple variables in one single 'let' statement. Then we can proceed to use the variable's content by using it's name. Like this:
                 </p>
                 <code>
-                    let doggo_name = "Catalina", doggo_happiness = 100;<br>
-                    alert(doggo_name);
+                    let doggo_name = "Catalina", doggo_happiness = 100;<br><br>
+                    // Then we proceed to show the information on screen with the alert() function, <br>// but implementing it within another function when the user clicks on a button.<br><br>
+                    let doggo_Button = document.getElementById("printDoggo");<br><br>
+
+                    doggo_Button.addEventListener("click", printDoggo);<br><br>
+
+                    function printDoggo ()<br>{
+                        alert(doggo_name+" is "+doggo_happiness+" levels of happy.");
+                    }
                 </code>
+                <button id="printDoggo">Tell me about your doggo</button><br><br>
                 <p>
-                    There are a couple of limitations to the naming of variables in JS. We can only use letters, digits or the symbols '$' and '_'. Also, the first character of the variable MUST NOT be a digit.
-                </p>
+                    There are a couple of limitations to the naming of variables in JS. We can only use letters, digits or the symbols '$' and '_'. Also, the first character of the variable MUST NOT be a digit. Also the variables are case sensitive so 'Number' and 'number' are two separate variables.
+                </p><br>
+                <script> // Basic variable assignations in JS
+                    let doggo_name = "Catalina", doggo_happiness = 100;
+                    doggo_name = "Catalina";
+                    let doggo_Button = document.getElementById("printDoggo");
+
+                    doggo_Button.addEventListener("click", printDoggo);
+
+                    function printDoggo (){
+                        alert(doggo_name+" is "+doggo_happiness+" levels of happy.");
+                    }
+                </script>
                 <h5>Numbers</h5>
                 <p>
+                    I don't remember right now all the theory that I read regarding numbers, I know, I should have write this down before.
+                    Either way. The numbers, and pretty much all variables in JS are declared the same way as mentioned before. You can use 'let' for them.<br><br>
+                    We can use basic operations like addition, subtraction, division and multiplication. Also in JS the order of operations follow the same rules as basic math, this means that the '*' and '/' are executed before '+' and '-'. In case there are two operators of the same level then it goes from left to right.<br><br>
+                    There are also a couple of ienteresting things related to math in JS. For example we can use the "-" or "+" operator on an operand (the number being "operated(?"), so we can transform a number from positive to negative or the other war around.<br><br>Let's see an example of all this: <br>
+                </p>
+                <code>
+                    let numberA, numberB, result;<br>
+                    numberA = 200-100;<br>
+                    numberB = 250/5;<br>
+                    result = -result;<br>
+                    result = numberA*numberB; // This would be -5000. Check the console if you don't believe me ;)<br>
+                </code>
+                <script> // Basic math operations in JS
+                    let numberA, numberB, result;
+                    numberA = 200-100;
+                    numberB = 250/5;
+                    result = numberA*numberB;
+                    result = -result;
+                    console.log("The result from the number operations is: " + result);
+                </script>
+                <br><br>
+                <h5>Strings</h5>
+                <p>
+                    Then again this isn't too complicated either. We actually use an example for this first section. The interesting things about strings is how much we can do with them and is a lot. At the moment I only studied basic possible operations. Like these ones:<br>
+                    
+                </p>
+                <code>
+                    // Replacing content of a String<br>
+                </code>
             </div>
         </article>
     </main>
