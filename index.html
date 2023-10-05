@@ -165,7 +165,20 @@
                         fraseModificada = frase.replace(/hobbits/gi, "elfos");
                         console.log(fraseModificada);
                     </script>
+                </code><br>
+                <p>
+                    We can also use the ` ` to assign strings. They behave the same way as " " or ' ', but they add an extended functionality to our strings since they allow us to embed variables and expressions if we wrap them inside ${...}, an example:
+                </p>
+                <code>
+                    let nombre = "Yisus";<br>
+                    let oracion = `Ese ${nombre} ${10+2}  si es marikito`;<br>
+                    console.log(oracion); // This should print: "Ese Yisus 12 si es marikito"<br>
 
+                    <script>
+                        let nombre = "Yisus";
+                        let oracion = `Ese ${nombre} ${10+2} si es marikito`;
+                        console.log(oracion);
+                    </script>
                 </code>
             </div>
         </article>
