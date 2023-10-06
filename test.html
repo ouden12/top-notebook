@@ -41,6 +41,97 @@
         </div>
     </header>
     <main class="main-container">
+
+        <!-- Ternary operator example with website styles -->
+        <label for="theme">Select website theme:</label>
+        <select id="theme">
+            <option value="light">Light theme</option>
+            <option value="dark">Dark theme</option>
+        </select>
+        <p>holi</p>
+
+        <script>
+            const selectTheme = document.getElementById("theme");
+            const html = document.querySelector("html");
+
+            function updateTheme(bgColor, textColor) {
+                html.style.backgroundColor = bgColor;
+                html.style.color = textColor;
+            }
+
+            selectTheme.addEventListener("change", ()=>
+                selectTheme === "dark"
+                ? updateTheme ("0b1012", "white")
+                : updateTheme ("white", "black")
+            );
+
+        </script>
+
+
+        <!-- Ejemplo de lectura de una selección con JS -->
+        <label for="weather">Select the weather type today</label>
+        <select id="weather">
+            <option value=""></option>
+            <option value="gay">Gay</option>
+            <option value="sunny">Sunny</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowing">Snowing</option>
+            <option value="overcast">Overcast</option>
+        </select>
+
+        <p id="weather_result"></p>
+
+        <script>
+            const selectWeather = document.getElementById("weather");
+            const outputWeather = document.getElementById("weather_result");
+
+            selectWeather.addEventListener("change", setWeather);
+
+            function setWeather(){
+                const weather = selectWeather.value;
+                switch(weather){
+                    case 'sunny':
+                        outputWeather.textContent = "It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.";
+                        break;
+                    case 'rainy':
+                        outputWeather.textContent = "Rain is falling outside; take a rain coat and an umbrella, and don't stay out for too long.";
+                        break;
+                    case 'snowing':
+                        outputWeather.textContent = "The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman";
+                        break;
+                    case 'overcast':
+                        outputWeather.textContent = "It isn't raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.";
+                        break;
+                    case 'gay':
+                        outputWeather.textContent = "It's raining men! Hallelujah! It's raining men! Amen! I'm gonna go out to run and let myself get absolutely soaking wet!";
+                        break;
+                    default:
+                        outputWeather.textContent = "";
+                }
+            }
+
+        </script>
+
+        <!-- Ejemplo de concatenación de cadenas -->
+        <h3>Una concatenación ahí rapidita manubrio</h3>
+        <button class="normal-button" id="concatenando">Dime tu name</button>
+        <div id="concatenando-text"></div>
+        
+        <script>
+            function concatenando(){
+                const saludo_concatenando = document.getElementById("concatenando-text");
+                const nombre_concatenando = prompt("Dime tu nombre manaure: ", "nombre placeholder");
+                if (nombre_concatenando == null){
+                    saludo_concatenando.textContent = null;
+                    return;
+                }
+                saludo_concatenando.textContent = `Epale chamo, tiempo sin verte ${nombre_concatenando}, qué talco to\`o?`;
+            }
+
+            let concatenando_button = document.getElementById("concatenando");
+            concatenando_button.addEventListener("click", concatenando);
+        </script>
+
         <h3>Prueba de modificación del DOM con JS</h3>
         <button class="normal-button" id="plomo">Plomo al hampa</button>
         <p id="hampa-status">El hampa anda suelto</p>
@@ -59,6 +150,12 @@
 
     <script>
 
+        // Ejemplo de operador ternario (Ternary operator)
+        // condition ? run this code : run this code instead
+        let isBirthday = !true;
+        let ternario = isBirthday ? "Jelis cumple hermanito" : "Vaya a mascar chimó";
+        
+        console.log(ternario);
         // Replacing content of a String
         let text, newText;
         text = document.getElementById("replace").innerHTML;

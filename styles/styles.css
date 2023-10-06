@@ -171,3 +171,49 @@ code {
     width: -moz-fit-content;
     width: fit-content;
 }
+
+.login-container {
+    /* height: 80vh; */
+}
+
+.login {
+    /* background-color: white; */
+    height: 450px;
+    width: 600px;
+    margin: auto;
+    margin-top: 45px;
+    border-radius: 15px;
+    border: 2px solid white;
+    color: white;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login > h5 {
+    text-align: center;
+}
+
+.login > button {
+    margin-top: 25px;
+    height: 55px;
+    width: 300px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.login > button.cta {
+    background-color: #e0a442;
+    color: white;
+}
+.login > button.cta:hover {
+    background-color: #c2882b;
+}
+.login > button.secondary:hover {
+    background-color: #d5d5d5;
+}

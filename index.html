@@ -17,8 +17,10 @@
             <span class="gold-text">|</span>
             <nav class="header-nav">
                 <ul>
+                    <li><a href="js_objects.html">JS Objects</a></li>
+                    <li><a href="loginPractice.html">Login practice</a></li>
+                    <li><a href="practice.html">Practices</a></li>
                     <li><a href="">Documentation</a></li>
-                    <li><a href="">Practices</a></li>
                     <li><a href="">Resources</a></li>
                     <li><a href="test.html">Test</a></li>
                 </ul>
@@ -167,7 +169,7 @@
                     </script>
                 </code><br>
                 <p>
-                    We can also use the ` ` to assign strings. They behave the same way as " " or ' ', but they add an extended functionality to our strings since they allow us to embed variables and expressions if we wrap them inside ${...}, an example:
+                    We can also use the ` ` to fill strings. They behave the same way as " " or ' ', but they add an extended functionality to our strings since they allow us to embed variables and expressions if we wrap them inside ${...}, an example:
                 </p>
                 <code>
                     let nombre = "Yisus";<br>
@@ -179,7 +181,52 @@
                         let oracion = `Ese ${nombre} ${10+2} si es marikito`;
                         console.log(oracion);
                     </script>
+                </code><br>
+                <p>As a last thing. Is important to remember that JS treats strings as objects so we can use methods that are available for string variables like: charAt(), length(), repeat(), search(), substring(), etc.</p>
+                <br><br>
+                <h5>Objects</h5>
+                <p>
+                    This is a complex thing. Is not a primitive value like the ones mentioned before, you know the basics of objects, can store multiple values (primitive values, other objects and functions).
+                </p>
+                <br><br>
+                <h5>Typeof</h5>
+                <p>
+                    This is an operator that will give us the type of the operand, pretty useful I guess, but at the moment I haven't use it. The syntax will be something like:
+                </p>
+                <code>
+                    typeof undefined; // "undefined"<br>
+                    typeof 0; // "number"<br>
+                    typeof 10n; // "bigint"<br>
+                    typeof true; // "boolean"<br>
+                    typeof alert; // "function"<br>
+                    typeof Math; // "object"<br>
                 </code>
+                <br><br>
+                <h5>boolean, bigints, undefined, symbol, null</h5>
+                <p>
+                    This all exist and are things that may be intuitive or not but you will use. Booleans are nothing new, null and undefined are similar but not the same, bigints are for big af numbers, and symbol is weird, is used to create unique identifiers for objects so its related to that concept, later you should read about it. 
+                </p>
+                <br>
+                <h5>Summary</h5>
+                <p>
+                    There exist 8 basic data types in JavierScript.<br>
+                    The first seven are primitive data types, those are: number, bigint, string, boolean, null, undefined and symbol.<br>
+                    The last one is a non-primitive data type called object.<br>
+                    We can use the operator "typeof" to check what we talkin' about (except for null, because it will return "object" that's an error but just finge demencia and keep going).<br>
+                    For maths and other comparisons null/undefined are converted to numbers: null becomes a 0, while undefined becomes a NaN.
+                </p>
+                <br><br>
+                <h5>Logical Operators :0</h5>
+                <p>
+                    There are four of these bad boys: || (or), && (and), ! (not) and ?? (Nullish Coalescing (wtf)).
+                </p>
+                <script>
+                    let uno = 1, dos = 2, tres = 3, cuatro = 4;
+                    let compa1, compa2;
+                    compa1 = uno >= dos; 
+                    compa2 = tres <= cuatro;
+                    if (dos || tres){console.log("arrecho verdá?")}else{console.log("ajá y entonces?");};
+                </script>
             </div>
         </article>
     </main>

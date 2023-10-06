@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP Notebook - JS Objects</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-left">
+            <a class="logo-text" href="https://www.theodinproject.com" target="_blank">
+                <img class="header-logo" src="assets/top-logo.svg" alt="">
+            </a>
+
+            <span class="header-text">The Odin Project: <span class="italic-text">Notebook</span></span>
+            <span class="gold-text">|</span>
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">Documentation</a></li>
+                    <li><a href="">Practices</a></li>
+                    <li><a href="">Resources</a></li>
+                    <li><a href="test.html">Test</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="sm">
+                <a href="https://github.com/ouden12" target="_blank">
+                    <div class="sm-logo first"></div>
+                </a>
+                <a href="https://twitter.com/jesusmanuel_12" target="_blank">
+                    <div class="sm-logo second"></div>
+                </a>
+                <a href="https://instagram.com/jesusmanuel_12?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                    <div class="sm-logo third"></div>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="login-container">
+        <section class="login">
+            <h5>Welcum mi bro</h5>
+            <button id="bt-login" class="cta">Iniciar sesión</button>
+            <button class="secondary">Registrarse</button>
+        </section>
+    </main>
+    <script>
+        //  Credentials for website
+        const modelUsername = "admin";
+        const modelPassword = "pass";
+
+        //  Detects login button
+        let bt_login = document.getElementById("bt-login");
+        bt_login.addEventListener("click", login);
+
+        //  Authentication proccess
+        function checkCredentials(username, password){
+            if ((username === modelUsername)&&(password === modelPassword)){
+                alert("ta logeado");
+            } else {
+                alert("credenciales inválidas");
+            }
+        }
+
+        //  Credentials input
+        function login(){
+            const tempUsername = prompt("Ingrese usuario:");
+            const tempPassword = prompt("Ingrese contraseña:");
+            if (!tempUsername || !tempPassword) {
+                alert("Login failed")
+            }else 
+            checkCredentials(tempUsername, tempPassword);
+        }
+    </script>
+</body>
+</html>
