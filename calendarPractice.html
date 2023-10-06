@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <style>
+        ul li {
+        display:inline;
+        padding: 10px;
+        }
+
+        .output * {
+            box-sizing: border-box;
+        }
+
+        .output ul {
+            padding-left: 0;
+        }
+
+        .output li {
+            display: block;
+            float: left;
+            width: 25%;
+            border: 2px solid white;
+            padding: 5px;
+            height: 40px;
+            background-color: #4a2db6;
+            color: white;
+        }
+
+        html {
+            font-family: sans-serif;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        .a11y-label {
+            margin: 0;
+            text-align: right;
+            font-size: 0.7rem;
+            width: 98%;
+        }
+
+        body {
+            margin: 10px;
+            background: #f5f9fa;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-left">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">Documentation</a></li>
+                    <li><a href="">Calendar</a></li>
+                    <li><a href="">Resources</a></li>
+                    <li><a href="test.html">Test</a></li>
+                    <li><a href="test2.html">Test 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+        <div class="output" style="height: 500px;overflow: auto;">
+            <label for="monthSelector">Select month: </label>
+            <select id="monthSelector">
+                <option value=""></option>
+                <option value="jan">January</option>
+                <option value="feb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">July</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+            </select>
+            <div class="calendar">
+                <h1 id="month">QLQ</h1>
+                <ul id="daysList"></ul>
+            </div>
+        </div>
+    </main>
+    
+</body>
+
+<script>
+    const monthSelector = document.getElementById("monthSelector");
+    const daysList = document.getElementById("daysList");
+    const monthName = document.getElementById("month");
+
+    monthSelector.addEventListener("change", () => {
+        const choice = monthSelector.value;
+
+        let days = 31;
+        switch(choice) {
+            case 'feb':
+                days = 28;
+                break;
+            case 'apr':
+            case 'jun':
+            case 'sep':
+            case 'nov':
+                days = 30;
+            default:
+                days = 31;
+        }
+
+    });
+    
+
+    function createCalendar(){
+       
+    }
+</script>
+</html>

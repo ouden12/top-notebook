@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    ul li {
+      display:inline;
+      padding: 10px;
+    }
+    a {color: inherit;}
+    </style>
+    
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-left">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="js_objects.html">JS Objects</a></li>
+                    <li><a href="loginPractice.html">Login practice</a></li>
+                    <li><a href="calendarPractice.html">Calendar</a></li>
+                    <li><a href="">Documentation</a></li>
+                    <li><a href="">Resources</a></li>
+                    <li><a href="test.html">Test</a></li>
+                    <li><a href="test2.html">Test 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h3>Hola brother</h3>
+    <label for="theme">Select website style</label>
+    <select id="theme">
+        <option value=""></option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+
+    <script>
+        const themeSelector = document.getElementById("theme");
+        const html = document.querySelector("html");
+
+        function updateTheme (bgColor, txtColor) {
+            html.style.backgroundColor = bgColor;
+            html.style.color = txtColor;
+        }
+
+        function setTheme () {
+            // Ternary operator
+            themeSelector.value === "dark"
+            ? updateTheme("#0b1012", "white")
+            : updateTheme("white", "black");
+        }
+
+        themeSelector.addEventListener("change", setTheme);
+
+    </script>
+</body>
+</html>
