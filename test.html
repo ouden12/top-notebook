@@ -149,6 +149,39 @@
     </main>
 
     <script>
+        let browser = "Firefox";
+        if (browser == "Edge"){
+            console.log( "You've got the Edge!" );
+        } else if (browser == "Chrome" 
+        || browser == "Firefox" 
+        || browser == "Safari" 
+        || browser == "Opera") {
+            console.log( 'Okay we support these browsers too' );
+        } else {  
+            console.log( 'We hope that this page looks ok!' );
+        }
+
+        let asr = 2 + 2;
+
+        switch (asr) {
+        case 3:
+            console.log( 'Too small' );
+        case 4:
+            console.log( 'Exactly!' );
+        case 5:
+            console.log( 'Too big' );
+        default:
+            console.log( "I don't know such values" );
+        }
+        // Ejemeplo de condicionales
+        let userAnswer = prompt("What is the \"official\" name of JavaScript? (ECMAScript)");
+        let rightAnswer = "ECMAScript";
+
+        if (userAnswer == rightAnswer) {
+            alert("Right!, buscó en gugle seguro prro.");
+        } else {
+            alert("You don't know stupid little shit??? is ECMAScript!");
+        }
 
         // Ejemplo de operador ternario (Ternary operator)
         // condition ? run this code : run this code instead
@@ -156,6 +189,16 @@
         let ternario = isBirthday ? "Jelis cumple hermanito" : "Vaya a mascar chimó";
         
         console.log(ternario);
+
+        // Ejemplo de operador ternario with multiple '?'
+        let edad = 27;
+        let message = (edad < 5) ? "Eres un ser no pensante." : 
+            (edad < 18) ? "Sigues siendo un ser no pensante pero ya hablas." :
+            (edad < 85) ? "Te felicito, ya por lo menos piensas de vez en cuando." :
+            (edad < 100) ? "Espero que hayas aprendido a pensar a estas alturas" : 
+            "Admiro tu aguante dentro de este mundo de seres no pensantes.";
+        console.log (edad+"años. "+message);
+        
         // Replacing content of a String
         let text, newText;
         text = document.getElementById("replace").innerHTML;
