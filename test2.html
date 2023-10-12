@@ -36,6 +36,13 @@
         <option value="light">Light</option>
         <option value="dark">Dark</option>
     </select>
+    <br>
+    <br>
+    <!-- Read a pressed key and show it on screen -->
+    <div>
+        <input id="keyInput" type="text" onfocus="this.value=''"><br><br>
+        <div id="keyOutput"></div>
+    </div>
 
     <script>
         const themeSelector = document.getElementById("theme");
@@ -54,6 +61,25 @@
         }
 
         themeSelector.addEventListener("change", setTheme);
+
+        // Read a pressed key and show it on screen
+        const keyInput = document.querySelector("#keyInput");
+        const keyOutput = document.querySelector("#keyOutput");
+
+        // Method used in the explanation
+        keyInput.addEventListener("keydown", (event) => {
+            console.log("1) Key is: "+event.key);
+            keyOutput.innerHTML = `You pressed: "${event.key}"`;
+        });
+
+        //  This option also works
+        keyInput.addEventListener("keydown", setKey);
+    
+        function setKey() {
+            console.log("2) Key is: "+event.key);
+            keyOutput.innerHTML = `You pressed: "${event.key}"`;
+        }  
+        
 
     </script>
 </body>
