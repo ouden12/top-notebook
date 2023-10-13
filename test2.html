@@ -43,7 +43,15 @@
         <input id="keyInput" type="text" onfocus="this.value=''"><br><br>
         <div id="keyOutput"></div>
     </div>
-
+    <!-- Print a name selected randomly from an array list -->
+    <div>
+        <p id="nameList"></p>
+        <p id="randomName"></p>
+    </div>
+    <!-- Print a new array with the short names only -->
+    <div>
+        <p id="shortNames"></p>
+    </div>
     <script>
         const themeSelector = document.getElementById("theme");
         const html = document.querySelector("html");
@@ -79,7 +87,66 @@
             console.log("2) Key is: "+event.key);
             keyOutput.innerHTML = `You pressed: "${event.key}"`;
         }  
+
+        //
+        // Print a name selected randomly from an array list
+        //
+
+        const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada'];
+        const paragraph = document.querySelector("#randomName");
+
+        // Generates a random number inside a specific range 
+        function random(max, min) {
+            return (Math.floor(Math.random() * (max-min+1) + min));
+        }
+
+        // Picks a random value from inside an array
+        function selectName(string) {
+            return (string[random(0, string.length)]);
+        }
+
+        // Prints entire array as a paragraph in html
+        function printArray(vector, id) {
+
+            // Primera alternativa para hacer esto, muy larga e innecesaria
+            /** 
+            document.getElementById(id).innerHTML = "List of names: ";
+            for (let i = 0; i < vector.length; i++) {
+                if (i < vector.length-1)
+                    document.getElementById(id).innerHTML += vector[i]+", ";
+                else
+                    document.getElementById(id).innerHTML += vector[i]+".";
+            }
+            */
+           
+           // Segunda alternativa para hacerlo, con la función join() junto todos los items del vector en una sola cadena y luego la añado al elemento.
+           let cadena1 = vector.join(', ');
+           document.getElementById(id).innerHTML = "List of names: "+cadena1+".";
+        }
+
+        // Calling the functions
+        paragraph.textContent = "Random selected name: "+selectName(names);
+        printArray(names, "nameList");
+
+
+        //
+        // Filter function for an arrray
+        //
+        const names2 = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada'];
+        const paragraph2 = document.querySelector('#shortNames');
+
+        // Original function and call for retrieving short names
+        // function isShort(name) { return name.length < 5; }
+        // const shortNames = names2.filter(isShort);
         
+        // Alternative with an arrow function insde the filter() parameter
+        const shortNames = names2.filter( (name) => {
+            return name.length < 5
+        });
+
+        let cadena2 = shortNames.join(', ');
+        paragraph2.textContent = "Short names: " + cadena2 + ".";
+    
 
     </script>
 </body>
