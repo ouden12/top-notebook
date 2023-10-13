@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function library example</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+  </style>
+  </head>
+<body>
+
+  <input class="numberInput" type="text">
+  <p></p>
+
+  <script>
+    const input = document.querySelector('.numberInput');
+    const para = document.querySelector('p');
+
+    // Operaciones aritméticas: cuadrado, cubo, factorial y potencia
+
+    // When declaring a function, the element inside the parenthesis
+    // is called 'parameter': function test(parameter){ /*some code*/ };
+    // When calling that function, the value we send inside the parenthesis
+    // is called 'argument': test(argument);
+    
+    function squared(num){
+      return (num*num);
+    }
+
+    function cubed(num){
+      return (num*num*num);
+    }
+
+    function factorial(num){
+      if (num < 0) return undefined;
+      if (num === 0) return 1;
+      let index = num - 1;
+      while (index > 0){
+        num *= index;
+        index--;
+      }
+      return num;
+    }
+
+    function pow(num, pow) {
+      if (num < 1) return undefined;
+      let result = 1;
+      for (let index = 0; index < pow; index++) {
+        result *= num;
+      }
+      return result;
+    }
+    // Cleans the input everytime is clicked
+    input.addEventListener("click", ()=>{
+      console.clear();
+      console.log("me clickeoooo");
+      input.value="";
+    });
+    // Reads the input and parse the value to float to work with numbers
+    // Using an anonymous function ()=>  :O
+    input.addEventListener("change", ()=>{
+      const num = parseFloat(input.value);
+      if (isNaN(num)){
+        para.textContent = `"${input.value}" is not a valid number`;
+      } else {
+        para.textContent = `The square of ${num} is: ${squared(num)}, `;
+        para.textContent += `the cube of ${num} is: ${cubed(num)}, `;
+        para.textContent += `the factorial of ${num} is: ${factorial(num)}.`;
+      }
+    });
+
+    /*
+    let variable = pow(2,5);
+    console.log(variable);
+    console.log(`o también: ${variable}`);
+    */
+  </script>
+</body>
+</html>
