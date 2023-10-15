@@ -76,7 +76,7 @@
 
         // Method used in the explanation
         keyInput.addEventListener("keydown", (event) => {
-            console.log("1) Key is: "+event.key);
+            //console.log("1) Key is: "+event.key);
             keyOutput.innerHTML = `You pressed: "${event.key}"`;
         });
 
@@ -96,13 +96,13 @@
         const paragraph = document.querySelector("#randomName");
 
         // Generates a random number inside a specific range 
-        function random(max, min) {
+        function getRandom(max, min) {
             return (Math.floor(Math.random() * (max-min+1) + min));
         }
 
         // Picks a random value from inside an array
         function selectName(string) {
-            return (string[random(0, string.length)]);
+            return (string[getRandom(0, string.length)]);
         }
 
         // Prints entire array as a paragraph in html
@@ -146,8 +146,122 @@
 
         let cadena2 = shortNames.join(', ');
         paragraph2.textContent = "Short names: " + cadena2 + ".";
-    
 
+        /*
+        /   Coalescing operator '??'
+        /   Cool thing here, works similar as an OR '||' operator but meanwhile
+        /   the '||' returns a truthy value the '??' returns a defined value, i.e.:
+        /   The '||' won't ever return a 0 as a valid value since it reads it as falsy
+        /   The '??' will return a 0 without problem since it only rejects null or 
+        /    undefined values. Let's see an example of this:
+        */
+        // Classic OR operator
+        function checkOrOp(num) {
+            return (num || "This is not a valid number");
+        }
+        // Coalescing operator
+        function checkCoalescingOp(num) {
+            return (num ?? "This is not a valid number");
+        }
+
+        let coaTest = 0;
+        console.log(`This is a test with the || op. reading number ${coaTest} returns: ${checkOrOp(coaTest)}.`);
+        console.log(`This is a test with the ?? op. reading number ${coaTest} returns   : ${checkCoalescingOp(coaTest)}.`);
+
+        // Different returns on a function
+
+        function checkAge(age) {
+            /*
+            if (age >= 18) {
+                return true;
+            } else {
+                return confirm('Do you have permission from your parents?');
+                // return;
+            }
+            */
+
+            // Single line version of the previous validation using OR ||
+            // return (age >= 18 || confirm('Did parents allow you?'));
+            
+            // Single line version of the previous validation using a question mark operator ? (ternary operator)
+            return (age >= 18 ? true : confirm('Did parents allow you?'));
+        }
+
+        let age = prompt('How old are you?', 18);
+        if ( checkAge(age) ) {
+            console.log( 'Access granted' );
+        } else {
+            console.log( 'Access denied' );
+        }
+
+        /*
+        Naming a function
+        Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does, so that someone reading the code gets an indication of what the function does.
+
+        It is a widespread practice to start a function with a verbal prefix which vaguely describes the action. There must be an agreement within the team on the meaning of the prefixes.
+
+        For instance, functions that start with "show" usually show something.
+        showMessage(..)     // shows a message
+        getAge(..)          // returns the age (gets it somehow)
+        calcSum(..)         // calculates a sum and returns the result
+        createForm(..)      // creates a form (and usually returns it)
+        checkPermission(..) // checks a permission, returns true/false
+        */
+
+        //
+        //  Check prime
+        //
+
+        // Check and shows prime numbers
+        function checkShowPrime(n) {
+            nextPrime: for (let i = 2; i <= n; i++) {
+
+            for (let j = 2; j < i; j++) {
+                if (i % j == 0) continue nextPrime;
+            }
+            console.log( "Es primo: " + i ); // a prime
+            }
+        }
+
+        // We can split the previous function into two separate ones (check and show)
+        function checkPrime(n){
+            for (let i = 2; i < n; i++){
+                if (n % i == 0) return false;
+            }
+            return true;
+        }
+        function showPrime(n) {
+            for (let i = 2; i <= n; i++){
+                if (checkPrime(i))
+                    console.log("Es primate: "+i);
+            }
+        }
+
+        let primo = prompt("Mete tu number bro pa ver si primea: ");
+        showPrime(primo);
+
+        //
+        // Write a function min(a,b) which returns the least of two numbers a and b.
+        //
+
+        function checkLowerNumber(a, b){
+            return (a < b ? a : b);
+        }
+        let a = 18, b = 8;
+        console.log(`El número menor entre ${a} y ${b} es: ${checkLowerNumber(a, b)}`);
+        
+        // Ejemplo de un parámetro con un valor por defecto
+        function calcPow(a, b=1) {
+            let result = a;
+            for (let i = 2; i <= b; i++){
+                result *= a;
+            }
+            return result;
+        }
+        let c = 2, d = 6;
+        console.log(`${c} elevado a la ${d} es: ${calcPow(c, d)}`);
+    
+    
     </script>
 </body>
 </html>

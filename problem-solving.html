@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Solving</title>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+        ul li {
+            display:inline;
+            padding: 10px;
+        }
+        a {color: inherit;text-decoration: underline!important;}
+    </style>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-left">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="js_objects.html">JS Objects</a></li>
+                    <li><a href="loginPractice.html">Login practice</a></li>
+                    <li><a href="calendarPractice.html">Calendar</a></li>
+                    <li><a href="">Documentation</a></li>
+                    <li><a href="">Resources</a></li>
+                    <li><a href="test.html">Test</a></li>
+                    <li><a href="test2.html">Test 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-container">
+        <h2>Problem Solving</h2>
+        <p>
+            Esta es la cualidad nro. 1 que debe desarrollar un programador. La resolución de problemas consiste en, según V. Anton Spraul:<br>
+            "Escribir un programa original que realice una serie de tareas concretas y cumpla todas las restricciones establecidas"<br><br>
+        </p>
+        <h3>Los tres pasos de la resolución de problemas: </h3>
+        
+        <h5>Comprensión del problema y Planeación</h5>
+        <p>El primer paso es comprender cuál es exactamente el problema que desea resolverse. Si no se comprende no se sabrá cuándo se solucionará el problema. La mejor forma para comprender el problema es anotarlo en papel en texto puro hasta que se comprenda, dibujar diagramas puede ayudar. Una vez se pueda explicar el problema a alguien más entonces ahí se ha comprendido.<br><br>
+        Seguidamente se debe hacer una planeación de cómo resolver el problema en cuestión. Para el paso de planeación hay unas preguntas que se deben responder:</p>
+        <ul class="default-list">
+            <li class="default-list">¿Necesita el programa una interfaz de usuario? ¿Cómo se vería? ¿Qué funcionalidad tendrá la interfaz? Puede hacerse una maqueta de esto en papel.</li>
+            <li class="default-list">¿Qué inputs debe llevar el programa? ¿El usuario va a ingresar data o se obtendrá de otro lugar?</li>
+            <li class="default-list">¿Cuál es el output deseado?</li>
+            <li class="default-list">Una vez dados los inputs, ¿cuáles son los pasos necesarios para obtener el output deseado?</li>
+        </ul>
+        <p>En la última pregunta es donde se escribirá el algoritmo que solucione el problema. Tal como una receta, se definirán los pasos que deben seguirse para que la computadora solucione un problema en pseudocodigo.</p>
+
+        <h5>Pseudocodigo</h5>
+        <p>Pseudocode is writing out the logic for your program in natural language instead of code. It helps you slow down and think through the steps your program will have to go through to solve the problem.</p>
+        <h5>Dividir y conquistar</h5>
+        <p>From your planning, you should have identified some subproblems of the big problem you’re solving. Each of the steps in the algorithm we wrote out in the last section are subproblems. Pick the smallest or simplest one and start there with coding.</p>
+        <p>It’s important to remember that you might not know all the steps that you might need up front, so your algorithm may be incomplete -— this is fine. Getting started with and solving one of the subproblems you have identified in the planning stage often reveals the next subproblem you can work on. Or, if you already know the next subproblem, it’s often simpler with the first subproblem solved.</p>
+        <p>Many beginners try to solve the big problem in one go. Don’t do this. If the problem is sufficiently complex, you’ll get yourself tied in knots and make life a lot harder for yourself. Decomposing problems into smaller and easier to solve subproblems is a much better approach. Decomposition is the main way to deal with complexity, making problems easier and more approachable to solve and understand. In short, break the big problem down and solve each of the smaller problems until you’ve solved the big problem.</p>
+        <br><br>
+        
+        <h2>EJERCICIO:</h2>
+        <p>Write a program that allows the user to enter a number, print each number between one and the number the user entered, but for numbers that divide by 3 without a remainder print Fizz instead. For numbers that divide by 5 without a remainder print Buzz and finally for numbers that divide by both 3 and 5 without a remainder print  <a href="https://en.wikipedia.org/wiki/Fizz_buzz">fizzbuzz</a>.</p>
+    </main>
+    <script>
+        /*
+
+        Planeación:
+        1) ¿Tiene su programa una interfaz? ¿Qué aspecto tendrá?
+        
+        Nuestra solución FizzBuzz será un programa de consola de navegador, por lo que no necesitamos una interfaz. La única interacción con el usuario será permitirle introducir un número.
+
+        2) ¿Qué entradas tendrá su programa? ¿El usuario introducirá los datos o los obtendrá de algún otro lugar? 
+        
+        El usuario introducirá un número desde una ventana emergente.
+
+        3) ¿Cuál es la salida deseada? 
+        La salida deseada es una lista de números del 1 al número introducido por el usuario. Pero cada número que es divisible por 3 saldrá Fizz, cada número que es divisible por 5 saldrá Buzz y cada número que es divisible por 3 y 5 saldrá FizzBuzz
+    
+        Pseudocódigo:
+        ¿Cuáles son los pasos necesarios para obtener el resultado deseado? He aquí un algoritmo en pseudocódigo para este problema:
+
+        - El usuario introduce un número
+        - Un bucle de 1 al número introducido comienza:
+            - Si el número actual es divisible por 3 imprime "fizz"
+            - Si el número actual es divisible por 5 imprime "buzz"
+            - Si el número actual es divisible entre 3 y 5 imprime "fizzbuzz"
+            - Si no, imprime el número normal
+        */
+        
+        /*
+        Divide and conquer
+        */
+        
+        // 1) Obtener el número introducido por el usuario. Tenemos que asegurarnos de que la entrada es realmente un número, por lo que podemos utilizar parseInt para hacerlo:
+
+        let number = parseInt(prompt("Input your number to play fizzbuzz!"));
+        
+        console.info(`Entered value: ${number}`);
+
+        // 2) Crear un bucle desde 1 hasta el número introducido
+        for (let i = 1; i <= number; i++){
+
+        // 3) Realizar las validaciones adecuadas para múltiplos de 3, 5, y 3 y 5
+            if ((i % 3 === 0) && (i % 5 === 0)) console.log("Fizzbuzz");
+                else
+            if (i % 3 === 0) console.log("Fizz");
+                else
+            if (i % 5 === 0) console.log("Buzz");
+            else
+                console.log(i);
+
+        }
+
+        const a = 5;
+        const b = 10;
+
+        function add() {
+            return c;
+        }
+
+        function print() {
+            add();
+        }
+
+        print();
+    </script>
+</body>
+</html>

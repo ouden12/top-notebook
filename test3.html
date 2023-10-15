@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    ul li {
+      display:inline;
+      padding: 10px;
+    }
+    a {color: inherit;}
+    </style>
+    
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-left">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="js_objects.html">JS Objects</a></li>
+                    <li><a href="loginPractice.html">Login practice</a></li>
+                    <li><a href="calendarPractice.html">Calendar</a></li>
+                    <li><a href="">Documentation</a></li>
+                    <li><a href="">Resources</a></li>
+                    <li><a href="test.html">Test</a></li>
+                    <li><a href="test2.html">Test 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Function expressions -->
+    <div>
+        
+    </div>
+    <script>
+        // Function expressions
+        // Remember that a function is a value representing an “action”
+        // Alternative way of declaring a function, e.g.:
+        let sayHi = function() {
+            console.log("Qlq manaure");
+        };
+
+        // Create a normal function, a function can be treated as a value
+        function sayHola(){
+            console.log("Qlq manaure x2");
+        }
+        // Copy the functions to variables, since is a value it can be treated as such
+        let copyFunction1 = sayHi;
+        let copyFunction2 = sayHola
+        // Use the variables where the functions were copied as a normal function
+        copyFunction1();
+        copyFunction2();
+
+        //
+        // Callback functions
+        // When we use functions as arguments for another function  
+        // they are called callback functions or just callbacks.
+        //
+
+        // We’ll write a function ask(question, yes, no) with three parameters.
+
+        // Mi intento sin ver la teoría
+        function preguntar (question, yes, no){
+            let result = question();
+            if (result) yes();
+            else        no();
+        }
+
+        let yep = function(){
+            console.log ("Yey, sí pudo gei");
+        };
+        let nop = function(){
+            console.log ("Ahh vaina, no pudisteS");
+        };
+
+        let pregunta = function(){
+            return confirm("usté cree que sí se pueda?");
+        }
+
+        preguntar(pregunta, yep, nop);
+
+        // Lo que mostraba el ejemplo
+
+        function ask (question, yes, no){
+            if(confirm(question))   yes();
+            else                    no();
+        }
+        function showOk () {
+            console.log ("Sí eressss.")
+        }
+        function showCancel () {
+            console.log ("No sea mentiroso pito.")
+        }
+        ask ("Eres gei?", showOk, showCancel);
+
+        // Or if we use function expressions: 
+        ask (
+            "Sea serio, sí o no?",
+            function() {console.log("Felicidades por salir del closet.")},
+            function() {console.log("No le creo pero bueno.")}
+        )
+
+        /*
+        The main difference between function expression vs function declaration
+        is WHEN the function is created by the Javascript engine.
+        A function declaration can be called before its creation, a function 
+        expression can not be called until it is created in the declaration
+        
+        BESTO EJEMPLO DE CUÁNDO ES ÚTIL UNA FUNCTION EXPRESSION
+        Estamos creando welcome primero pero luego de que se haga la validación
+        procedemos a asignarle su valor dependiendo de qué función necesitemos y
+        luego podremos usar la función welcome() fuera del bloque en que se declaró 
+        */
+        let age = prompt("What is your age?", 18);
+        let welcome; // Aquí se crea la variable que guardará la function expression
+        (age < 18) ?
+            welcome = function() { console.log("Qlq menor!"); } :
+            welcome = function() { console.log("Qlq mayorca!"); };
+        welcome(); // Dependiendo del resultado de la validación previa, welcome cambia
+        /*
+        Una forma simplificada sería con el operador ternario al crearla        
+        ~ let welcome = (age < 18) ? function(){...} : function(){...};
+        or with ternary operators + arrow functions:
+        ~ let welcome = (age < 18) ? ()=> alert('Hi young!') : ()=> alert('Hi old!');
+        */
+
+        /*
+        Summary of Function Expression vs Function Declaration
+        - Functions are values. They can be assigned, copied, or declared in any place of the code.
+        - If the function is declared as a separate statement in the main code flow, that's called a "Function Declaration".
+        - If the function is created as a part of an expression, it's called a "Function Expression".
+        - Function Declarations are processed before the code block is excecuted by the JS engine. They are visible everywhere in the block.
+        - Function Expressions are created when the execution flow reachs them.
+        Most of the time a Function Declaration will do the job and is more readable and flexible.
+        */
+
+
+        //
+        // ARROW FUNCTIONS (relatively new in js)
+        //
+
+        /*
+        Syntax:
+        ~ let func = (arg1, arg,2, ..., argN) => expression;
+
+        This creates a function that can receive arguments and then evaluates the expression. Dependiendo del número de argumentos se puede omitir el uso de paréntesis (2). En caso de que no haya ningún argumento entonces sí deben usarse los paréntesis (3).
+
+        Example:
+
+        1 - let suma   = (a, b) => a + b;   // Suma los dos valores 'a' y 'b'
+        2 - let double = x      => x * 2;   // Eleva al cuadrado el valor 'x'
+        3 - let sayHi  = ()     => alert("Hi!");
+
+        Multiline arrow funtions:
+        Sometimes we need a more complex function, with multiple expressions and statements. In that case, we can wrap them in curly braces {}. The major difference is that when used they require a return statement within them in order to return a value (as a regular function does).
+
+        Example:
+
+        4 - let suma = (a, b) => {  // Curly braces for a multiline function
+                let result = a + b;
+                return result;  // If we use {} we need an explicit "return"
+            }
+            alert ( sum(1, 2) ); // 3
+
+        we can already use arrow functions for one-line actions and callbacks!
+
+        Summary of arrow functions:
+        Las arrow functions son útiles para acciones simples, especialmente para one-liners. Vienen en dos tipos:
+        - Sin llaves cuando la función es sencilla y de una sola línea.
+        - Con llaves {} para cuando hacen falta varias líneas en la declaración.
+        
+        Exercise:
+
+        function ask(question, yes, no) {
+            if (confirm(question)) yes();
+            else no();
+        }
+
+        ask(
+            "Do you agree?",
+            () => alert("You agreed.") ,
+            () => alert("You canceled the execution.")
+        );
+
+        */
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    ul li {
+      display:inline;
+      padding: 10px;
+    }
+    a {color: inherit;}
+    </style>
+    
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-left">
+            <nav class="header-nav">
+                <ul>
+                    <li><a href="js_objects.html">JS Objects</a></li>
+                    <li><a href="loginPractice.html">Login practice</a></li>
+                    <li><a href="calendarPractice.html">Calendar</a></li>
+                    <li><a href="">Documentation</a></li>
+                    <li><a href="">Resources</a></li>
+                    <li><a href="test.html">Test</a></li>
+                    <li><a href="test2.html">Test 2</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <script>
+        // Assignment
+        // Write a function called add7 that takes one number and returns that number + 7.
+        function add7(n){
+            return n+7;
+        }
+        // Write a function called multiply that takes 2 numbers and returns their product.
+        function multiply(x, y){
+            return x*y;
+        }
+        // Write a function called capitalize that takes a string and returns that string with only the first letter capitalized. Make sure that it can take strings that are lowercase, UPPERCASE or BoTh.
+        function capitalize(string) {
+            return (string.charAt(0).toUpperCase() + string.slice(1).toLowerCase());
+        }
+        // Write a function called lastLetter that takes a string and returns the very last letter of that string: 
+        function lastLetter(string){
+            return (string.charAt(string.length-1));
+        }
+
+        let a = 13, b = 8, c = 5, cadena = "geRUnDIo";
+
+        console.log(`1) 13 aplicándole add7: ${add7(13)}`);
+        console.log(`2) 8 * 5: ${multiply(8, 5)}`);
+        console.log(`3) geRUnDIo: ${capitalize("geRUnDIo")}`);
+        console.log(`4) Última letra de la cadena anterior: '${lastLetter(cadena)}'`);
+
+
+    </script>
+</body>
+</html>
